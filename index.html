@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+		*{
+	     color: white;
+	     text-align: center;
+	    }
+	    
+	    body{
+	      background-color: rgb(0,0,0);
+	   }
+		
+		h2{
+		   color: red;
+		}
+		h3{
+		  color: orange;
+		}
+		
+		.container, .form-container{
+		  display: flex;
+		  gap: 4rem;
+		  justify-content: center;
+		}
+		
+		.pri, .Non-pri, .form, .form-data{
+	       background-color: rgba(255,255,255,0.4);
+	       padding: 5px;
+	       border: 2px solid white;
+	       width: 100%;
+	    }
+	    
+	    li{
+		  text-align: left;	
+		}
+		
+		label{
+	     color: greenyellow;
+	     font-weight: bold;
+	     font-size: 20px;
+	    }
+	    
+	    input{
+		  color: blue;
+		  border: none;	
+		}
+		
+		input:focus{
+		   border: 2px solid greenyellow;	
+		   outline: none;
+		   font-weight: bold;
+		}
+		
+		
+		input[type = "file"]::file-selector-button,button{
+		margin: 4px;
+		background-color: red;
+		border: none;
+		color: greenyellow;
+		font-weight: bold;
+		border-radius: 30px;
+		padding: 5px;
+		}
+		
+		
+		input[type = "file"]::file-selector-button:hover, button:hover{
+		  background-color: greenyellow;
+		  color: red;
+		  
+	    }
+		
+	    
+		
+
+		
+    </style>
+</head>
+<body>
+    <h1>DataTypes in JavaScript</h1>
+     
+    <div class = "container"> 
+     
+    <div class = "pri">
+    <h2>Primitive Data Types</h2>
+   
+    <h3>Numbers</h3>
+    <p id="number">
+    </p>
+    <h3>String</h3>
+    <span id="string">
+    </span>
+    <h3>Boolean</h3>
+    <span id="boolean">
+    </span>
+    <h3>Undefined</h3>
+    <span id="und" >
+    </span>
+    <h3>Null</h3>
+    <span id="null">
+    </span>
+    <h3>BigInteger[BigInt]</h3>
+    <span id="bigInt">
+    </span>
+    </div>
+
+    <div class = "Non-pri">
+		<h2> Non-primitive Data Types </h2>
+        <h3>Object</h3>
+        
+        <!-- <span id = "object"> </span> -->
+        
+        <ul id = "object"></ul>
+        
+        <h3>Arrays</h3>
+        <ul id = "arrays"></ul>
+        
+        <h3>Functions</h3>
+        <p id="func"><p>
+    </div>
+    
+    
+    </div>
+    
+    <h1>How to Handel Form Data</h1>
+       
+    <div class = "form-container">
+       
+       <div class = "form">
+          <h2>Form</h2> 
+          <label for ="name">Name</label> 
+          <input type = "text" id = "name" placeholder="Enter your Name">
+          <label for ="sem-mark">Marks</label> 
+          <input type = "number" id = "sem-mark" placeholder="Enter the sem Marks">
+          <input type="file" id="files" multiple>
+        </div>
+       
+       <div class = "form-data">
+		   <h2> Form-Data</h2>
+		   <button onclick= getData()>Get Data</button>
+		   <ul id="form-data-list">
+		   </ul>
+	   </div>
+		
+		 
+    </div>
+    
+    <script>
+		
+	   /* Primitive Datatype */
+	   
+       let a = 80.282;
+       document.getElementById("number").innerHTML =  a;
+       let name = "default Name";
+       //prompt("Enter Your Name");
+       document.getElementById("string").innerHTML = name;
+       let loggedIn = false;
+       document.getElementById("boolean").innerHTML = loggedIn;
+       let b;
+       document.getElementById("und").innerHTML = b;
+       b = null;
+       document.getElementById("null").innerHTML = b;
+       let c = 172288288288288282891991n;
+       document.getElementById("bigInt").innerHTML = c;
+       console.log(b);
+       
+       /* Derived DataType */
+       
+       let student = {name : name, marks: a, area_of_intrest: "Machine Learning"};
+     /*  for(let key in student){
+        document.getElementById("object").innerHTML += "<br><br>"+key+" : "+student[key];
+      }
+     */
+     
+     for(let key in student){
+	  document.getElementById("object").innerHTML += "<li>"+ key +" : "+student[key]+ "</li>";	 
+	}
+     
+     let data = [1,2,4,5,"Nithish"];
+  
+     for(let i in data){
+	  document.getElementById("arrays").innerHTML += "<li>"+data[i]+"</li>";	 
+	}
+	
+	function greet(namep){	
+	 document.getElementById("func").innerHTML += "Hello "+namep;	 
+	}
+	
+	greet(name);
+	
+	function getData(){
+	  document.getElementById("form-data-list").innerHTML += "<li>Name: "+  document.getElementById("name").value+"</li>";
+      document.getElementById("form-data-list").innerHTML += "<li>Marks: "+  document.getElementById("sem-mark").value+"</li>";
+      document.getElementById("form-data-list").innerHTML += "<li>files: "+  document.getElementById("files").files+"</li>";
+      
+      let files =  document.getElementById("files").files;
+ 
+	 console.log(files);
+     
+   
+	}
+	
+    </script>
+    
+     
+</body>
+</html>
