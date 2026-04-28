@@ -82,7 +82,7 @@
             background-color: greenyellow;
             color: red;
         }
-
+        
         /* Fixed Media Query */
         @media (max-width: 768px) {
             .container, .form-container {
@@ -139,6 +139,14 @@
           <input type="number" id="sem-mark" placeholder="Enter the sem Marks">
           <label>Upload Files</label>
           <input type="file" id="files" multiple>
+          <label for="gender">Gender</label>
+          <input type = "radio" id = "male" name="gender" value="Man"> <label for="male" style = "color:white; font-size: 15px;">Male</label>
+          <input type="radio" id = "female" name = "gender" value = "Women"> <label for="female" style = "color:white; font-size: 15px;">Female</label>
+          <label for="sports">Sports</label>
+          <input type="checkbox" name = "sports" value="football" id = "football">  <label for="football" style = "color:white; font-size: 15px;">Football</label>
+          <input type="checkbox" name = "sports" value="Criket" id= "Criket">  <label for="Criket" style = "color:white; font-size: 15px;">Criket</label>
+          <input type="checkbox" name = "sports" value="Shuttel" id = "Shuttel">  <label for="Shuttel" style = "color:white; font-size: 15px;">Shuttel</label>
+          
         </div>
        
        <div class="form-data">
@@ -181,6 +189,25 @@
             list.innerHTML += "<li>Marks: "+ document.getElementById("sem-mark").value+"</li>";
             let files = document.getElementById("files").files;
             list.innerHTML += "<li>Files uploaded: "+ files.length +"</li>";
+            let selected = document.querySelector('input[name = "gender" ]:checked');
+            if(selected){
+                list.innerHTML += "<li> Succesfully Checked the "+selected.value+"</li>";
+            }else{
+                list.innerHTML += "<li> Not checked anything </li>";
+            }
+            
+            let selectedSp = document.querySelectorAll('input[name = "sports" ]:checked');
+            
+            let sports = [];
+            
+            for(let s of selectedSp){
+                sports.push(s.value);
+            }
+            if(sports.length > 0){
+                list.innerHTML += "<li> Succesfully Checked the "+sports.join(", ")+"</li>";
+            }else{
+                list.innerHTML += "<li> Not checked anything </li>";
+            }
         }
     </script>
 </body>
