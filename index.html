@@ -34,7 +34,7 @@
             margin-bottom: 20px;
         }
 
-        .pri, .Non-pri, .form, .form-data {
+        .pri, .Non-pri, .form, .form-data{
             background-color: rgba(255,255,255,0.4);
             padding: 15px;
             border: 2px solid white;
@@ -155,6 +155,163 @@
            <ul id="form-data-list"></ul>
        </div>
     </div>
+    
+   <style>
+       #display{
+           width: 100%;
+           padding : 15px;
+           border-radius: 10px;
+           position: relative;
+       } 
+       .calculator-container{
+           width: 400px;
+           height: 50px;
+           font-size:20px;
+           display: flex;
+           flex-direction: column;
+           position: relative;
+       }
+       .buttons{
+           display: grid;
+           grid-template-columns: repeat(5, 1fr);
+           gap: 8 px;
+           position: relative;
+       }
+       
+       .buttons button{
+           cursor: pointer;
+       }
+       
+       .scientific{
+           background: lightblue;
+           color: rgb(0,0,0);
+       }
+       
+       .number{
+           background-color: lightgray;
+           color: rgb(0,0,0);
+       }
+       
+       sub,sup{
+           color: rgb(0,0,0);
+       }
+       
+       .operator{
+           background: orange;
+           color: rgb(0,0,0);
+       }
+       
+   </style>
+    
+    <div class = "container">
+        
+  <div class = "form">
+    
+    <div class = "calculator-container">
+        
+         <h1>Calculator</h1>
+        
+        <input type="text" id="display" readonly>
+        <div class = "buttons">
+           <button class = "clear" onclick = "clearD()">C</button>
+           <button class = "scientific" onclick = "press('(')">(</button>
+           <button class = "scientific" onclick =" press(')')">)</button>
+           <button class = "scientific" onclick="sqrt()">sqrt</button>
+           <button class = "operator" onclick = "press('/')">/</button>
+            
+            
+           <button class = "number" onclick = "press('7')">7</button>
+           <button class = "number" onclick = "press('8')">8</button>
+           <button class = "number" onclick = "press('9')">9</button>
+           <button class = "scientific" onclick="power()"><sub>X</sub><sup>2</sup></button>
+           <button class = "operator" onclick = "press('*')" >*</button>
+
+           <button class = "number" onclick = "press('4')">4</button>
+           <button class = "number" onclick = "press('5')">5</button>
+           <button class = "number" onclick = "press('6')">6</button>
+           <button class = "scientific" onclick="fact()">X!</button>
+           <button class = "operator" onclick = "press('-')">-</button>
+            
+            
+           <button class = "number" onclick = "press('3')">3</button>
+           <button class = "number" onclick = "press('2')">2</button>
+           <button class = "number" onclick = "press('1')">1</button>
+           <button class = "scientific" onclick="combination()">nCr</button>
+           <button class = "operator" onclick = "press('+')">+</button>
+            
+           <button class = "number" onclick = "press('0')">0</button>
+           <button class = "number" onclick = "press('.')">.</button>
+           <button class = "equal" onclick="calculate()">=</button>
+           <button class = "scientific" onclick="permutation()">nPr</button>
+            
+        </div>
+    </div>
+        
+      </div>
+        
+    </div>
+    
+    <script>
+    
+    function press(val){
+        document.getElementById("display").value += val;
+    }
+        
+    function calculate(){
+        let exp = document.getElementById("display").value;
+        
+        try{
+            document.getElementById("display").value = eval(exp);
+        }catch{
+             document.getElementById("display").value = "Error";
+        }
+    }
+        
+        
+    function clearD(){
+        document.getElementById("display").value = "";
+    }
+        
+        
+    function sqrt(){
+        let val = document.getElementById("display").value;
+        document.getElementById("display").value = Math.sqrt(val);
+    }
+        
+   function power(){
+        let val = document.getElementById("display").value;
+        document.getElementById("display").value = Math.pow(val,2);
+    }
+    
+    function fact(){
+        let val = document.getElementById("display").value;
+       
+        document.getElementById("display").value = factoral(val);
+    } 
+        
+        
+     function permutation(){
+         let n = parseInt(prompt("Enter the n value"));
+         let r = parseInt(prompt("Enter the r: "));
+         
+        document.getElementById("display").value = factorail(n)/factorail(n-r);
+    } 
+     
+     function combination(){
+         let n = parseInt(prompt("Enter the n value"));
+         let r = parseInt(prompt("Enter the r: "));
+         
+        document.getElementById("display").value = factorial(n)/(factorail(r)*factorail(n-r));
+    } 
+    
+    function factorail(val){
+        let fact = 1;
+        for(let i = val; i >= 1; i--){
+           fact *= i;
+        }
+        return fact;
+    }
+    </script>
     
     <script>
         let name = "Nithish"; 
