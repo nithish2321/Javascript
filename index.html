@@ -241,12 +241,85 @@
            <button class = "number" onclick = "press('.')">.</button>
            <button class = "equal" onclick="calculate()">=</button>
            <button class = "scientific" onclick="permutation()">nPr</button>
-            
+          <button class = "operator" onclick = "press('%')">%</button>
         </div>
     </div>
         
-        <div class = "form">
+        <style>
+         
+            #operation{
+                background: white;
+                color:blue;
+                border: none;
+                padding: 8px;
+                border-radius: 5px;
+                width: 80%;
+                font-weight: bold;
+                cursor: pointer;
+                margin: 10px;
+            }
+            
+            #operation:focus{
+                border: 2px solid greenyellow;
+                outline: none;
+                
+            }
+            
+            
+            #operation option{
+                background-color: rgb(0,0,0);
+                
+            }
         
+        </style>
+        
+        <div class = "form">
+           <h1>Tables Printer</h1>
+           <select name="operation" id="operation">
+              <option value=""></option>
+              <option value="*">Multiplication</option>
+              <option value="/">Division</option>
+              <option value="+">Addition</option>
+              <option value="-">Subtraction</option>
+              <option value="%">Modulo</option>
+              <option value="2">Sqaure</option>
+              <option value="3">Cube</option>
+           </select>
+           <input type="number" id = "times" placeholder="Enter a number">
+           <br><br>
+           <input type="number" id = "bottom" placeholder="Enter the bottom">
+           <button onclick="tables()">Get Tables</button>
+            
+            
+            <ul id ="tables-printing-area"></ul>
+            
+            <script>
+                
+            function tables(){
+            let operator = document.getElementById("operation").value;
+            let a = Number(document.getElementById("times").value);
+            let b = Number(document.getElementById("bottom").value);
+            let print =  document.getElementById("tables-printing-area");
+            print.innerHTML = "";
+                
+            if(operator == "2" || operator == "3"){
+                for(let i  = 1 ; i <= b ; i++){
+                    if(operator == "2"){
+                          print.innerHTML += "<li>"+ i + " ^  2 " + " = " + Math.pow(i,2) +"</li>";
+                    }else{
+                         print.innerHTML += "<li>"+ i + " ^ 3 = " + Math.pow(i,3) +"</li>";
+                    }
+                }
+            }else{
+            
+            for(let i = 1; i <= b; i++){
+                print.innerHTML += "<li>"+ a + " "+ operator+ " "+ i + " = " + eval(""+a+operator+i)+"</li>";
+             }
+            
+            }
+            
+            }
+            </script>
         </div>
         
     </div>
