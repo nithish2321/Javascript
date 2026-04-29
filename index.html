@@ -478,7 +478,9 @@
         let successMsg = document.getElementById("success-message");
         let passwordBox = document.getElementById("password");
         let warning =  document.getElementById("warning");
-        passwordBox.addEventListener('input',()=>{
+        passwordBox.addEventListener('input', updateBlock);
+        
+        function updateBlock(){
             warning.style.display = "block";
             if(passwordBox.value == "Nithish123@"){
                inputcont.style.display = "none";
@@ -486,8 +488,7 @@
             }else{
                 warning.innerHTML = "Entered the Wrong Password";
             }
-        });
-    
+        }
     </script>
     
     <script>
