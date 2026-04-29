@@ -398,8 +398,10 @@
            <h1>E-commerce website with price range filter</h1>
            
            <input type="range" max = 10000000 min=500000 value= 10000000 id = "range">
-           <input type="radio" name="fuel"  value = "petrol" class="fuel">petrol
-           <input type="radio" name ="fuel" value="disel" class="fuel">disel
+           <label for="petrol">Petrol</label>
+           <input type="radio" name="fuel"  value = "petrol" class="fuel" id="petrol">
+           <label for="disel">disel</label>
+           <input type="radio" name ="fuel" value="disel" class="fuel" id="disel">
            <p id = "range-disp">1 CR</p>
            <button id="filter">filter</button><br>
            <output id = "fuel"></output>
