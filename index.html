@@ -202,6 +202,10 @@
            color: rgb(0,0,0);
        }
        
+       ul{
+           list-style-type: none;
+       }
+       
    </style>
     
     <div class = "container">
@@ -323,6 +327,47 @@
             </script>
         </div>
         
+    </div>
+    
+    
+    <div class = "container">
+    
+     <div class="form">
+         
+     <h1>Exploring For Each</h1>
+         
+     <ul id = "users">
+         
+     </ul>
+         
+     <script>
+         let users = ["Nithish", "Arun", "Suresh", "Diya"];  
+         let list = document.getElementById("users");
+         
+         users.forEach( (element,index,array) => {
+            list.innerHTML += "<li> Sending email to "+element+" on index "+index+"among the users i.e., "+array+"</li>";
+         }
+         );
+    </script>
+    
+     </div>
+    
+    <div class="form"> 
+        
+        <h1>Exploring For Each with the respect to List of Objects</h1>
+        
+        
+        
+        
+        <script>
+        
+        
+        
+        </script>
+        
+    </div>
+    
+    
     </div>
     
     <script>
