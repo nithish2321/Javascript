@@ -459,10 +459,36 @@
         
         
         <div class = "form">
+          <div id="input-container">
+            <h1>Enter the Correct Password to unlock</h1>
+            <input type="password" placeholder="Enter the Password" id = "password">
+            <label id="warning" style="color: red; font-size: larger; display: none">Enter the correct</label>
+          </div>
             
+          <div id="success-message" style="display:none">
+            <h1 style="color: greenyellow">You have Successfully Loged in</h1>
+          </div>
         </div>
     
     </div>
+    
+    
+    <script>
+        let inputcont = document.getElementById("input-container");
+        let successMsg = document.getElementById("success-message");
+        let passwordBox = document.getElementById("password");
+        let warning =  document.getElementById("warning");
+        passwordBox.addEventListener('input',()=>{
+            warning.style.display = "block";
+            if(passwordBox.value == "Nithish123@"){
+               inputcont.style.display = "none";
+               successMsg.style.display = "block";
+            }else{
+                warning.innerHTML = "Entered the Wrong Password";
+            }
+        });
+    
+    </script>
     
     <script>
     
