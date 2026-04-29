@@ -356,14 +356,37 @@
         
         <h1>Exploring For Each with the respect to List of Objects</h1>
         
+        <ul id ="sensor">
         
+        </ul>
         
         
         <script>
         
-        
+        let sensorData = [
+            {id: 1,name: "Moisturiation Sensor", location : "east", moisture: 20},
+            {id: 2, name: "Moisturiation Sensor", location: "west", moisture: 45},
+            {id: 3,name: "Moisturiation Sensor", location : "north", moisture : 15},
+            {id: 4,name: "Moisturiation Sensor", location : "south", moisture: 10}
+        ];
+            
+        list = document.getElementById("sensor");
+           
+        sensorData.forEach((element) => 
+        {
+            if(element.moisture <= 15){
+                list.innerHTML += "<li>Please give the attension to the "+element.location+" side the moistue is <span>"+element.moisture+"</span></li>";
+            }
+        }
+        );
         
         </script>
+        
+        <style>
+            #red{
+                color: red;
+            }
+        </style>
         
     </div>
     
