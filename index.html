@@ -397,8 +397,12 @@
         
            <h1>E-commerce website with price range filter</h1>
            
-           <input type="range" max = 10000000 min=500000 value= 10000000 id = "filter">
+           <input type="range" max = 10000000 min=500000 value= 10000000 id = "range">
+           <input type="radio" name="fuel"  value = "petrol" class="fuel">petrol
+           <input type="radio" name ="fuel" value="disel" class="fuel">disel
            <p id = "range-disp">1 CR</p>
+           <button id="filter">filter</button><br>
+           <output id = "fuel"></output>
            <ul id="car-list">
            
            </ul>
@@ -406,33 +410,44 @@
            <script>
            
             const carData = [
-                {name:"Maruti Suzuki Swift", price: 650000},
-                {name:"Tata Tiago EV", price: 850000},
-                {name:"Hyundai Creta", price: 1100000},
-                {name:"Mahindra XUV700", price: 1450000},
-                {name:"Toyota Fortuner", price: 3300000},
-                {name:"BMW 3 Series", price: 4600000},
-                {name:"Mercedes-Benz C-Class", price: 6000000},
-                {name:"Audi Q7", price: 9500000}
+                {name:"Maruti Suzuki Swift", price: 650000,fuel:"disel"},
+                {name:"Tata Tiago EV", price: 850000,fuel:"petrol"},
+                {name:"Hyundai Creta", price: 1100000, fuel: "disel"},
+                {name:"Mahindra XUV700", price: 1450000,fuel:"petrol"},
+                {name:"Toyota Fortuner", price: 3300000,fuel: "disel"},
+                {name:"BMW 3 Series", price: 4600000, fuel:"petrol"},
+                {name:"Mercedes-Benz C-Class", price: 6000000,fuel: "disel"},
+                {name:"Audi Q7", price: 9500000,fuel:"petrol"}
             ];
                
             list = document.getElementById("car-list");
-            let range = document.getElementById("filter");
+            let range = document.getElementById("range");
+            
             
             range.addEventListener('input',() =>{
                 let rangeValue = parseInt(range.value);
                 document.getElementById("range-disp").innerHTML = Math.round(rangeValue/100000)+ " lakhs";
-                list.innerHTML = "";
-                carData.forEach((element) => {
-                    if(element.price <= rangeValue)
-                    list.innerHTML +=  "<li> Car Name: "+ element.name +" | Price: "+element.price+"</li>"; 
-                });
             });
                
-           
-            
-            
+            let filter = document.getElementById("filter");
                
+            filter.addEventListener('click',()=>{
+                let rangeValue = parseInt(range.value);
+                let fuel = document.querySelector('input[name ="fuel"]:checked');
+                document.getElementById("range-disp").innerHTML = Math.round(rangeValue/100000)+ " lakhs";
+                document.getElementById("fuel").innerHTML = fuel ? fuel.value : "Giving the result for both petrol and disel";
+                list.innerHTML = "";
+                let fuelValue = fuel ? fuel.value : "null";
+                carData.forEach((element) => {
+                    if(element.price <= rangeValue){
+                    if(fuelValue== element.fuel){
+                    list.innerHTML +=  "<li> Car Name: "+ element.name +" | Price: "+element.price+" | Fuel: "+element.fuel+"</li>"; 
+                    }else if(fuelValue == "null"){
+                      list.innerHTML +=  "<li> Car Name: "+ element.name +" | Price: "+element.price+" | Fuel: "+element.fuel+"</li>";  
+                    }
+                    }
+                });  
+            });
            
            
            </script>
