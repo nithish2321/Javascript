@@ -345,7 +345,7 @@
          let list = document.getElementById("users");
          
          users.forEach( (element,index,array) => {
-            list.innerHTML += "<li> Sending email to "+element+" on index "+index+"among the users i.e., "+array+"</li>";
+            list.innerHTML += "<li> Sending email to "+element+" on index "+index+" among the users i.e., "+array+"</li>";
          }
          );
     </script>
@@ -379,17 +379,71 @@
             }
         }
         );
+            
+            
         
         </script>
         
-        <style>
-            #red{
-                color: red;
-            }
-        </style>
-        
     </div>
     
+    
+    </div>
+    
+    
+    
+    <div class = "form-container">
+    
+       <div class = "form">
+        
+           <h1>E-commerce website with price range filter</h1>
+           
+           <input type="range" max = 10000000 min=500000 value= 10000000 id = "filter">
+           <p id = "range-disp">1 CR</p>
+           <ul id="car-list">
+           
+           </ul>
+           
+           <script>
+           
+            const carData = [
+                {name:"Maruti Suzuki Swift", price: 650000},
+                {name:"Tata Tiago EV", price: 850000},
+                {name:"Hyundai Creta", price: 1100000},
+                {name:"Mahindra XUV700", price: 1450000},
+                {name:"Toyota Fortuner", price: 3300000},
+                {name:"BMW 3 Series", price: 4600000},
+                {name:"Mercedes-Benz C-Class", price: 6000000},
+                {name:"Audi Q7", price: 9500000}
+            ];
+               
+            list = document.getElementById("car-list");
+            let range = document.getElementById("filter");
+            
+            range.addEventListener('input',() =>{
+                let rangeValue = parseInt(range.value);
+                document.getElementById("range-disp").innerHTML = Math.round(rangeValue/100000)+ " lakhs";
+                list.innerHTML = "";
+                carData.forEach((element) => {
+                    if(element.price <= rangeValue)
+                    list.innerHTML +=  "<li> Car Name: "+ element.name +" | Price: "+element.price+"</li>"; 
+                });
+            });
+               
+           
+            
+            
+               
+           
+           
+           </script>
+           
+           
+      </div>
+        
+        
+        <div class = "form">
+            
+        </div>
     
     </div>
     
