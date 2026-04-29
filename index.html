@@ -375,7 +375,7 @@
         sensorData.forEach((element) => 
         {
             if(element.moisture <= 15){
-                list.innerHTML += "<li>Please give the attension to the "+element.location+" side the moistue is <span>"+element.moisture+"</span></li>";
+                list.innerHTML += "<li>Please give the attension to the "+element.location+" side the moistue is <span style = 'color:red; font-weight:bold;' >"+element.moisture+"</span></li>";
             }
         }
         );
