@@ -42,10 +42,32 @@ const role = document.getElementById("role").value;
 bio_form.style.display = "none";
 
 //const bio = "Hello i am "+name+"\nI work as a "+role;
-    
+document.getElementById("bio-output").style.display = "block";
 document.getElementById("bio-output").innerHTML = `Hello i am ${name}
 I work as a ${role}`;
     
+}
+
+
+function get_list(){
+    let fruit_list = document.querySelectorAll('input[name="fruits"]:checked');
+    document.getElementsByClassName("list-form")[0].style.display = "none";
+    const output = document.getElementById("fruit-output");
+    output.style.display = "block";
+    output.innerHTML = `The fruit list are as follows:
+[`;
+    fruit_list.forEach((element)=>{
+        output.innerHTML +=`${element.value}, `;
+    });
+    
+   output.innerHTML += `]
+`;  
+    
+   let [,second,,last]= fruit_list;
+    
+   output.innerHTML += `Second : ${second.value}
+   last : ${last.value}`;
+   
 }
 
 

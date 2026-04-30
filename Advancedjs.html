@@ -33,21 +33,42 @@
           <input type="text" id="role" placeholder="Enter your name to add it in your bio">
           <button onclick="gen_bio()">Generate bio</button>
           </div>
-          <div id="user-bio">
-           <pre id="bio-output" style="font-size: large; font-weight:bold; color:greenyellow;">
+            
+           <div id="user-bio">
+           <pre id="bio-output" style="font-size: large; font-weight:bold; color:greenyellow;display: none">
            </pre>  
           </div>
+          
         </div>
         
     </div>
         
     <div class="container">
+        <h1>Destruction</h1>
       <div class="form">
-        <h2>Destruction</h2>
+        <h2>List Destruction</h2>
+       <div class="list-form">
         <label for="apple">Apple</label>
-        <input type="checkbox" name="apple" id="apple" >
+        <input type="checkbox" name="fruits" id="apple" value="Apple">
+        <label for="orange">Orange</label>
+        <input type="checkbox" name="fruits" id="orange" value="Orange">
+        <label for="grapes">Grapes</label>
+        <input type="checkbox" name="fruits" id="grapes" value="Grapes">
+        <label for="banana">Banana</label>
+        <input type="checkbox" name="fruits" id="banana" value="Banana">
+        <button onclick="get_list()">Get List</button>
+       </div>
+          
+          
+        <div id="fruit-list">
+           <pre id="fruit-output" style="font-size: large; font-weight:bold; color:greenyellow;display:none;">
+           </pre>  
+        </div>
+          
       </div> 
       <div class = "form">
+          <h2>Object Destruction</h2>
+          
       </div>
     </div>
     
