@@ -1,3 +1,5 @@
+import {usersData} from './users.js';
+
 // var let const
 
 const num_rows = document.getElementById("num-rows");
@@ -62,13 +64,39 @@ function get_list(){
     
    output.innerHTML += `]
 `;  
+  console.log(fruit_list.length);
+   let [second,last] = fruit_list;
     
-   let [,second,,last]= fruit_list;
-    
-   output.innerHTML += `Second : ${second.value}
-   last : ${last.value}`;
+   output.innerHTML += `first : ${second.value}
+   second : ${last.value}`;
    
 }
+
+const usersList = document.getElementById("users");
+
+usersData.forEach((element,index)=>{
+    usersList.innerHTML += "<li>"+JSON.stringify(element)+"</li>";
+}
+);
+
+const usersMailSending = document.getElementById("users-mail-sending");
+
+usersData.forEach((element,index)=>{
+    let {name,email} = element;
+    usersMailSending.innerHTML += `<li>Sending Mail to ${name} in the email address of ${email} <li>`;
+}
+);
+
+const usersage = document.getElementById("users-age");
+
+usersData.forEach((element,index)=>{
+    let {name,age} = element;
+    usersage.innerHTML += `<li>The user ${name} is ${age} years old <li>`;
+}
+);
+
+
+
 
 
 
