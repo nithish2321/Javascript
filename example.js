@@ -1,1 +1,0 @@
-document.getElementById("c-likes").innerHTML = "0";
