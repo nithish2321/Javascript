@@ -35,7 +35,7 @@ console.log(i);
 
 //Learning Template literals
 
-function gen_bio(){
+export function gen_bio(){
 
 const bio_form = document.getElementById("bio-form");
 const name = document.getElementById("name").value;
@@ -51,7 +51,7 @@ I work as a ${role}`;
 }
 
 
-function get_list(){
+export function get_list(){
     let fruit_list = document.querySelectorAll('input[name="fruits"]:checked');
     document.getElementsByClassName("list-form")[0].style.display = "none";
     const output = document.getElementById("fruit-output");
@@ -94,6 +94,10 @@ usersData.forEach((element,index)=>{
     usersage.innerHTML += `<li>The user ${name} is ${age} years old <li>`;
 }
 );
+
+
+window.gen_bio = gen_bio;
+window.get_list = get_list;
 
 
 
