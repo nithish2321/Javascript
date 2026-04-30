@@ -96,8 +96,52 @@ usersData.forEach((element,index)=>{
 );
 
 
+//Spred and rest operation operator[...]
+//Please visit console to explore this 
+
+//Spread
+const baseTools = ["Git","Phoenix"];
+
+const fullStack = ["React","Spring Boot",...baseTools];
+
+console.log(baseTools);
+console.log(fullStack);
+
+
+const userDetails = {id: 101};
+const completeProfile = {...userDetails, status:"Active"};
+
+console.log(userDetails);
+console.log(completeProfile);
+
+//Rest 
+
+function sumAll(...numbers){
+    let sum = 0; 
+    for(let n of numbers){
+        console.log(n);
+        sum += n;
+    }
+    
+    return sum;
+    
+}
+
+console.log(sumAll(90,10,40));
+console.log(sumAll(90));
+console.log(sumAll(90,100,70,60));
+
+function validate(){
+    const name = document.getElementById("form-name").value;
+    if(name.length < 3){
+        document.getElementById("error").innerHTML = "NAME SHOULD HAVE TO MORE THAN THREE CHARACTERS";
+    } 
+    
+}
+
 window.gen_bio = gen_bio;
 window.get_list = get_list;
+window.validate = validate;
 
 
 
