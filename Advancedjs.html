@@ -25,9 +25,30 @@
         
         
         <div class="form">
-        
+          <h2>Template Literals</h2>
+          <div id="bio-form">
+          <label for="name" >Name</label>
+          <input type="text" id="name" placeholder="Enter your name to add it in your bio">
+          <label for="role">Role</label>
+          <input type="text" id="role" placeholder="Enter your name to add it in your bio">
+          <button onclick="gen_bio()">Generate bio</button>
+          </div>
+          <div id="user-bio">
+           <pre id="bio-output" style="font-size: large; font-weight:bold; color:greenyellow;">
+           </pre>  
+          </div>
         </div>
         
+    </div>
+        
+    <div class="container">
+      <div class="form">
+        <h2>Destruction</h2>
+        <label for="apple">Apple</label>
+        <input type="checkbox" name="apple" id="apple" >
+      </div> 
+      <div class = "form">
+      </div>
     </div>
     
     <script src="script.js"></script>

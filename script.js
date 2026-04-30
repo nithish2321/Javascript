@@ -31,6 +31,24 @@ const i = 10;
 console.log(i);
 
 
+//Learning Template literals
+
+function gen_bio(){
+
+const bio_form = document.getElementById("bio-form");
+const name = document.getElementById("name").value;
+const role = document.getElementById("role").value;
+
+bio_form.style.display = "none";
+
+//const bio = "Hello i am "+name+"\nI work as a "+role;
+    
+document.getElementById("bio-output").innerHTML = `Hello i am ${name}
+I work as a ${role}`;
+    
+}
+
+
 
 
 
