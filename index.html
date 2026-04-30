@@ -5,99 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning JavaScript is fun</title>
     <link rel="icon" type = "image/x-icon" href="favicon.png">
-    <script src="example.js"></script>
-    <style>
-        * {
-            color: white;
-            text-align: center;
-            box-sizing: border-box; /* Prevents padding from breaking layout */
-        }
-
-        body {
-            background-color: rgb(0,0,0);
-            margin: 0;
-            padding: 10px;
-        }
-
-        h2 {
-            color: red;
-        }
-
-        h3 {
-            color: orange;
-        }
-
-        .container, .form-container {
-            display: flex;
-            flex-direction: row;	
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 20px;
-        }
-
-        .pri, .Non-pri, .form, .form-data{
-            background-color: rgba(255,255,255,0.4);
-            padding: 15px;
-            border: 2px solid white;
-            /* Use a smaller basis or 100% logic for mobile safety */
-            flex: 1 1 300px;
-        }
-
-        li {
-            text-align: left;	
-        }
-
-        label {
-            color: greenyellow;
-            font-weight: bold;
-            font-size: 20px;
-            display: block; /* Makes labels stack nicely */
-            margin-top: 10px;
-        }
-
-        input {
-            color: blue;
-            border: none;
-            padding: 5px;
-            width: 90%; /* Keeps inputs from hitting the border */
-        }
-
-        input:focus {
-            border: 2px solid greenyellow;	
-            outline: none;
-            font-weight: bold;
-        }
-
-        input[type="file"]::file-selector-button, button {
-            margin: 10px;
-            background-color: red;
-            border: none;
-            color: greenyellow;
-            font-weight: bold;
-            border-radius: 30px;
-            padding: 8px 15px;
-            cursor: pointer;
-        }
-
-        input[type="file"]::file-selector-button:hover, button:hover {
-            background-color: greenyellow;
-            color: red;
-        }
-        
-        /* Fixed Media Query */
-        @media (max-width: 768px) {
-            .container, .form-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .pri, .Non-pri, .form, .form-data {
-                flex: 1 1 auto;
-                width: 100%; /* Forces the box to take full width on mobile */
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>DataTypes in JavaScript</h1>
@@ -471,6 +379,9 @@
           </div>
         </div>
     
+    </div>
+    <div class=container>
+    <iframe src="Advancedjs.html" title="Advancedjs" height="10000px" width="100%"></iframe>
     </div>
     
     

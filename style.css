@@ -1,31 +1,90 @@
-[editor]
-line_wrapping=false
-line_break_column=72
-auto_continue_multiline=true
+  * {
+            color: white;
+            text-align: center;
+            box-sizing: border-box; /* Prevents padding from breaking layout */
+        }
 
-[file_prefs]
-final_new_line=true
-ensure_convert_new_lines=false
-strip_trailing_spaces=false
-replace_tabs=false
+        body {
+            background-color: rgb(0,0,0);
+            margin: 0;
+            padding: 10px;
+        }
 
-[indentation]
-indent_width=4
-indent_type=1
-indent_hard_tab_width=8
-detect_indent=false
-detect_indent_width=false
-indent_mode=2
+        h2 {
+            color: red;
+        }
 
-[project]
-name=untitled
-base_path=
-description=
+        h3 {
+            color: orange;
+        }
 
-[long line marker]
-long_line_behaviour=1
-long_line_column=72
+        .container, .form-container {
+            display: flex;
+            flex-direction: row;	
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
 
-[files]
-current_page=0
-FILE_NAME_0=5742;HTML;0;EUTF-8;1;1;0;C%3A%5CUsers%5Cnithi%5COneDrive%5CDesktop%5Cjavascript%5Cindex.html;0;4
+        .pri, .Non-pri, .form, .form-data{
+            background-color: rgba(255,255,255,0.4);
+            padding: 15px;
+            border: 2px solid white;
+            /* Use a smaller basis or 100% logic for mobile safety */
+            flex: 1 1 300px;
+        }
+
+        li {
+            text-align: left;	
+        }
+
+        label {
+            color: greenyellow;
+            font-weight: bold;
+            font-size: 20px;
+            display: block; /* Makes labels stack nicely */
+            margin-top: 10px;
+        }
+
+        input {
+            color: blue;
+            border: none;
+            padding: 5px;
+            width: 90%; /* Keeps inputs from hitting the border */
+        }
+
+        input:focus {
+            border: 2px solid greenyellow;	
+            outline: none;
+            font-weight: bold;
+        }
+
+        input[type="file"]::file-selector-button, button {
+            margin: 10px;
+            background-color: red;
+            border: none;
+            color: greenyellow;
+            font-weight: bold;
+            border-radius: 30px;
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        input[type="file"]::file-selector-button:hover, button:hover {
+            background-color: greenyellow;
+            color: red;
+        }
+        
+        /* Fixed Media Query */
+        @media (max-width: 768px) {
+            .container, .form-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pri, .Non-pri, .form, .form-data {
+                flex: 1 1 auto;
+                width: 100%; /* Forces the box to take full width on mobile */
+            }
+        }
