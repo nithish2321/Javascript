@@ -131,13 +131,37 @@ console.log(sumAll(90,10,40));
 console.log(sumAll(90));
 console.log(sumAll(90,100,70,60));
 
-function validate(){
+
+
+document.getElementById("validate-form").addEventListener(
+"submit", function validate(event){
     const name = document.getElementById("form-name").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    let error = "";
     if(name.length < 3){
-        document.getElementById("error").innerHTML = "NAME SHOULD HAVE TO MORE THAN THREE CHARACTERS";
-    } 
-    
+       error  += "<li class = 'error-msg'>NAME SHOULD HAVE MORE THAN THREE CHARACTERS</li>";
+    }
+    if(!email.includes("@")){
+        error += "<li class= 'error-msg'>Email should contains @ </li>";
+    }
+    if(password.length < 8){
+         error  += "<li class = 'error-msg'>password SHOULD HAVE MORE THAN 8 CHARACTERS</li>";
+   
+    }
+    if(error !== ""){
+        event.preventDefault();
+        document.getElementById("error").innerHTML = error;
+    }else{
+        document.getElementById("error").style.color = "greenyellow";
+        document.getElementById("error").innerHTML = "Form submitted successfully";
+    }
+
 }
+);
+
+
+
 
 window.gen_bio = gen_bio;
 window.get_list = get_list;

@@ -88,3 +88,8 @@
                 width: 100%; /* Forces the box to take full width on mobile */
             }
         }
+
+
+.error-msg{
+    color: red;
+}
